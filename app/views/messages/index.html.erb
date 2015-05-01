@@ -1,2 +1,10 @@
-<h1>Messages#index</h1>
+<h1>prispevky</h1>
 <p>Find me in app/views/messages/index.html.erb</p>
+
+<p><%= link_to "novy koment", new_message_path %></p>
+
+<% @messages.each do |m| %>
+	<%= m.body %>
+	<br>
+<% end %>
+

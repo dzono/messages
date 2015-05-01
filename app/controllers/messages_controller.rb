@@ -20,4 +20,10 @@ class MessagesController < ApplicationController
   		render :new
   	end
   end
+
+  def destroy
+  	@message = Message.find params[:id]
+  	@message.destroy
+  	redirect_to messages_url
+  end
 end
