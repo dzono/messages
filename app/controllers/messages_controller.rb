@@ -1,4 +1,23 @@
 class MessagesController < ApplicationController
   def index
+  	@messages = Message.all
+  end
+
+  def show
+  	@message = Message.find params[:id]	
+  end
+
+  def new
+  	@message = Message.new
+  end
+
+  def create
+  	@message = Message.new params[:message].permit(:body)
+
+  	if @message.save
+  		redirect_to messages_url
+  	else
+  		render :new
+  	end
   end
 end
